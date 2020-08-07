@@ -1,0 +1,288 @@
+:root {
+    --accent:#131313; /* accent color */
+    --accent-text:#fff; /* accent text */
+    --bg-color:#f9f9f9; /* background */
+    --box-color:#eaeaea; /* box background color */
+    --text:#262626; /* text color */
+    
+    --awesome:#f44336; /* red */
+    --happy:#F49536; /* orange */
+    --stress:#f4e636; /* yellow */
+    --angry:#B9FE42; /* green */
+    --shag:#36f4b0; /* cyan */
+    --sad:#3696f4; /* blue */
+    --sick:#7936f4; /* purple */
+    --average:#f436cc; /* pink */
+}
+
+@-webkit-keyframes fadein {from {opacity:0;} to {opacity:1;}}
+@keyframes fadein {from {opacity:0;} to {opacity:1;}}
+ 
+::-webkit-scrollbar {
+    width:10px; 
+    height:10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background:var(--accent);
+    border:4px solid var(--bg-color);
+    border-width:0 4px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background:var(--box-color);
+    border:4px solid var(--bg-color);
+    border-width:0 4px;
+}
+
+::selection {
+    background:var(--accent);
+    color:var(--accent-text);
+}
+
+::-webkit-selection {
+    background:var(--accent);
+    color:var(--accent-text);
+}
+
+::-moz-selection {
+    background:var(--accent);
+    color:var(--accent-text);
+}
+ 
+/* --- tooltips --- */
+
+.ui-tooltip {position:absolute; z-index:214748364789;}
+
+.ui-tooltip-content {
+    background-color:#fff; /* tooltips background */
+    color:#131313; /* tooltips text */
+    margin:5px 20px;
+    padding:5px 10px 7px;
+    border-radius:0px;
+    letter-spacing:0px;
+    max-width:300px;
+    text-align:justify;
+	font:normal 12px/150% 'Karla', sans-serif;
+	background-image:linear-gradient(to right,var(--awesome),var(--happy),var(--stress),var(--angry),var(--shag),var(--sad),var(--sick),var(--average));
+	background-size:100% 2px;
+	background-repeat:no-repeat;
+	background-position:left bottom;
+}
+
+/* ------ basic styles ------ */
+ 
+body {
+    word-wrap:break-word;
+    overflow:auto;
+    overflow-x:hidden;
+    margin:0px;
+    letter-spacing:0px;
+    color:var(--text);
+    background-color:var(--bg-color);
+    background-attachment:fixed;
+    background-repeat:repeat;
+    font:12px/200% 'Karla',sans-serif;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+ 
+b, bold, strong {
+    font-weight:700; 
+    color:var(--accent); /* bold color */
+}
+
+i, italic, em {
+    font-style:italic;
+    color:var(--accent); /* italic color */
+}
+ 
+a {
+    color:var(--text); /* links color */
+    text-decoration:none;
+    transition:0.3s ease-in-out;
+}
+ 
+a:hover {color:var(--accent);}
+ 
+img {border:none;}
+
+/* ------ grid structure ------ */
+
+#grid {
+    width:90vw;
+    margin:30px auto 90px;
+  	display:grid;
+  	grid-gap:0vw;
+  	grid-template-columns:repeat(13,1fr);
+  	grid-auto-flow:dense;
+  	justify-content:center;
+    -webkit-animation:fadein 1s;
+    animation:fadein 1s;
+}
+
+#grid > .month > div, #grid > .number > div {
+    height:calc(90vw/13); 
+    /*width:6vw;*/
+    /*margin-bottom:1vw;*/
+}
+
+#grid > .month > div:not(.label) {
+    background:var(--box-color);
+    transition:0.5s ease-in-out;
+}
+
+#grid > .month > div:not(.label)[title] {z-index:1;}
+
+#grid > .month > div:not(.label)[title]:hover {
+    transform:scale(1.5);
+    -webkit-transform:scale(1.5);
+    -ms-transform:scale(1.5);
+    z-index:2;
+}
+
+#grid > .number > div,
+#grid > .month > div {
+    font:1.5em/6vw "Karla";
+    text-align:center;
+    overflow:hidden;
+}
+
+/* --- grid box colors --- */
+
+#grid > .month > div.awesome,.awesome {background:var(--awesome);}
+#grid > .month > div.happy,.happy {background:var(--happy);}
+#grid > .month > div.stress,.stress {background:var(--stress);}
+#grid > .month > div.shag,.shag {background:var(--shag);}
+#grid > .month > div.sad,.sad {background:var(--sad);}
+#grid > .month > div.angry,.angry {background:var(--angry);}
+#grid > .month > div.sick,.sick {background:var(--sick);}
+#grid > .month > div.average,.average {background:var(--average);}
+
+/* ------ header ------ */
+
+#top {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(to right,var(--awesome),var(--happy),var(--stress),var(--angry),var(--shag),var(--sad),var(--sick),var(--average));
+}
+
+header {
+    width:90vw;
+    margin:120px auto 30px;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+header h1 {
+    font-size:2em;
+    display:inline-block;
+    /*background:-webkit-linear-gradient(left,var(--awesome),var(--happy),var(--stress),var(--angry),var(--shag),var(--sad),var(--sick),var(--average));*/
+    /*-webkit-background-clip:text;*/
+    /*-webkit-text-fill-color:transparent;*/
+}
+
+header nav {font-size:1.2em;}
+
+header nav a {margin:0 10px; border-bottom:2px solid transparent;}
+header nav a:hover {border-bottom-color:var(--accent);}
+
+#legend {
+    margin:60px auto;
+    width:90vw;
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    align-items:center;
+    justify-items:center;
+    grid-gap:1vw;
+    font-size:14px;
+}
+
+#legend .key div {
+    display:inline-block;
+    width:2vw; 
+    height:2vw;
+    vertical-align:middle;
+}
+
+#legend .key span {
+    display:inline-block; 
+    vertical-align:middle;
+    margin-left:5px;
+}
+
+/* ------ media queries ------ */
+
+@media screen and (min-width:720px){
+    #grid > .month > div:not(.label)[title]::before {
+        content:"!";
+        opacity:0;
+        color:var(--accent-text);
+        transition:opacity 0.5s ease-in-out;
+    }
+    
+    #grid:hover > .month > div:not(.label)[title]::before {
+        opacity:1;
+    }
+}
+
+@media screen and (min-width:1280px){
+    #grid {
+        display:block;
+    }
+    
+    #grid > .month,
+    #grid > .number {
+        height:calc(90vw/32);
+        margin-bottom:0px;
+        display:grid;
+        grid-gap:0px;
+        grid-template-columns:repeat(32,1fr);
+    }
+    
+    #grid > .month > div,
+    #grid > .number > div {
+        width:100%;
+        height:100%;
+        position:relative;
+        margin-bottom:0;
+    }
+    
+    #grid > .number > div,
+    #grid > .month > div {
+        text-align:center;
+        font:1.1em/calc(90vw/32) "Karla";
+    }
+}
+
+@media screen and (min-width:1440px){
+    #grid > .number > div,
+    #grid > .month > div {
+        font-size:1.2em;
+    }
+}
+
+@media screen and (max-width:1080px){
+    #legend {
+        grid-template-columns:auto auto;
+        grid-template-rows:repeat(4,1fr);
+        grid-auto-flow:column;
+        align-items:start;
+        justify-items:start;
+        width:60vw;
+    }
+    
+    #grid > .month > div,
+    #grid > .number > div {font-size:1.5em;}
+}
+
+@media screen and (max-width:720px){
+    #grid > .month > div,
+    #grid > .number > div {font-size:1rem;}
+    
+    #grid > .month > div.label {visibility:hidden; font-size:0;}
+    #grid > .month > div.label::first-letter {visibility:visible; font-size:1rem;}
+}
