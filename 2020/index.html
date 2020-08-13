@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Bev's 2020 in pixels</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet'>
+    
+    <link href="fonts/bitxmap.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="top"></div>
+    <header>
+        <h1>
+            bev's 2020 in pixels
+        </h1>
+    </header>
+    
+    <section id="legend">
+        <div class="key">
+            <div class="color awesome"></div>
+            <span class="name">Awesome</span>
+        </div>
+        <div class="key">
+            <div class="color happy"></div>
+            <span class="name">Happy</span>
+        </div>
+        <div class="key">
+            <div class="color stress"></div>
+            <span class="name">Stressful</span>
+        </div>
+        <div class="key">
+            <div class="color shag"></div>
+            <span class="name">Tired</span>
+        </div>
+        <div class="key">
+            <div class="color sad"></div>
+            <span class="name">Sad</span>
+        </div>
+        <div class="key">
+            <div class="color angry"></div>
+            <span class="name">Angry</span>
+        </div>
+        <div class="key">
+            <div class="color sick"></div>
+            <span class="name">Sick</span>
+        </div>
+        <div class="key">
+            <div class="color average"></div>
+            <span class="name">Average</span>
+        </div>
+    </section>
+    
+    <label class="container" id="container">
+      <input type="checkbox" class="checkbox" id="toggle"/>
+        <div class="text_1">By Month</div>
+        <div class="text_2">Compressed View</div>
+      <div class="switch" id="switch">
+        <span class="gooey_bg gooey_bg_1"></span>
+        <span class="gooey_bg gooey_bg_2"></span>
+      </div>
+    </label>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="fluid">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        </filter>
+      </defs>
+    </svg>
+    
+    <main id="grid">
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.2.0/papaparse.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="scripts/color.js"></script>
+    <script src="scripts/build.js"></script>
+</body>
+</html>
