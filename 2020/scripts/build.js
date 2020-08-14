@@ -15,29 +15,41 @@ var months = [jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec];
 var tooltips = [];
 var leapYear = true;
 
+var grid = document.getElementById("grid"),
+	legend = document.getElementById("legend"),
+	toggle = document.getElementById("container");
+
+grid.style.display = "none";
+legend.style.display = "none";
+toggle.style.display = "none";
+
+var loader = document.getElementById("load");
+
 /* For the CORS-Anywhere server, I'm just reusing the one I made for the MOE2018TRF005 study because too lazy to make a new one... */
-Papa.parse(
-	"https://moe2018trf005cors.herokuapp.com/https://docs.google.com/spreadsheets/d/144ZovLziyEiaYrRXNbIZtItAwVq6yhaPK6Q6fKi7tHg/pub?output=csv",{
-		download: true, 
-		header: true,
-		step: function(row) {
-			var thisRow = row.data;
-			var thisMonth = parseInt(thisRow.Month);
-			var thisDay = parseInt(thisRow.Day);
-			months[thisMonth-1][thisRow.Day] = thisRow.Type.toLowerCase();
-			if(thisRow.Tooltip){
-				tooltips.push({
-					month:thisMonth,
-					day:thisDay,
-					content:thisRow.Tooltip
-				});
-			}
-		},
-		complete: function (results) {
-			fillGrid(months,tooltips,leapYear);
-		} 
-	}
-);
+Papa.parse("https://moe2018trf005cors.herokuapp.com/https://docs.google.com/spreadsheets/d/144ZovLziyEiaYrRXNbIZtItAwVq6yhaPK6Q6fKi7tHg/pub?output=csv",{
+	download: true, 
+	header: true,
+	step: function(row) {
+		var thisRow = row.data;
+		var thisMonth = parseInt(thisRow.Month);
+		var thisDay = parseInt(thisRow.Day);
+		months[thisMonth-1][thisRow.Day] = thisRow.Type.toLowerCase();
+		if(thisRow.Tooltip){
+			tooltips.push({
+				month:thisMonth,
+				day:thisDay,
+				content:thisRow.Tooltip
+			});
+		}
+	},
+	complete: function (results) {
+		fillGrid(months,tooltips,leapYear);
+		fadeout(loader);
+		fadein(legend);
+		fadein(toggle);
+		fadein(grid);
+	} 
+});
 
 
 function fillGrid(months, tooltips, leapYear) {
