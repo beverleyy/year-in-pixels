@@ -134,13 +134,13 @@ function fillGrid(months, tooltips, leapYear) {
 				}
 				break;
 		} // end switch
-		var howManyBefore = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
+		var howManyBefore = [2,5,6,2,4,0,2,5,1,3,6,1];
 		for (var j = 0; j < howManyBefore[i - 1]; j++) {
 			var daybf = document.createElement("div");
 			daybf.className = "elem bef";
 			mth.insertBefore(daybf, mth.firstChild);
 		}
-		var howManyAfter = [10, 10, 7, 12, 9, 7, 11, 8, 6, 10, 8, 5];
+		var howManyAfter = [9,8,5,10,7,12,9,6,11,8,6,10];
 		for (var j = 0; j < howManyAfter[i - 1]; j++) {
 			var dayaf = document.createElement("div");
 			dayaf.className = "elem aft";
