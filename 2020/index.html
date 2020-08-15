@@ -66,18 +66,19 @@
         <div class="text_1">By Month</div>
         <div class="text_2">Compact View</div>
       <div class="switch" id="switch">
-        <span class="gooey_bg gooey_bg_1"></span>
-        <span class="gooey_bg gooey_bg_2"></span>
+        <span class="fluid_bg fluid_bg_1"></span>
+        <span class="fluid_bg fluid_bg_2"></span>
       </div>
     </label>
     
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <defs>
-        <filter id="fluid">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"></feGaussianBlur>
-          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-        </filter>
-      </defs>
+        <defs>
+            <filter id="fluid">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="fluid" />
+                <feComposite in="SourceGraphic" in2="fluid" operator="atop"/>
+            </filter>
+        </defs>
     </svg>
     
     <main id="grid">
