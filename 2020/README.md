@@ -4,6 +4,7 @@ Version 2 of the year-in-pixels page.
 
 ### New features this year include:
 
+* No more jQuery! Vanilla is superior, yo.
 * I changed the color scheme to something more RGB
 * Pixel fonts to match the pixel theme (Press Start 2P and Bitxmap)
 * No more manually filling in the Javascript list, Papaparse and CORS-Anywhere lets this baby fetch data directly from a Google sheet
