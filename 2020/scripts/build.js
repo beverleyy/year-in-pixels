@@ -247,9 +247,8 @@ function fadeout(el) {
 
 function makeTooltip(){
 	tippy('[title]',{
-		followCursor: true,
 		arrow: false,
-		touch: false,
+		followCursor: true,
 		content(reference) {
 			const title = reference.getAttribute('title');
 			reference.removeAttribute('title');
