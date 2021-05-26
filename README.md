@@ -4,6 +4,7 @@ Documenting my year in a series of colored pixels.
 ## View by year:
 [2019](http://beverleyy.github.io/year-in-pixels/2019)
 [2020](http://beverleyy.github.io/year-in-pixels/2020)
+[2021](http://beverleyy.github.io/year-in-pixels/2021)
 
 ## Changelog:
 

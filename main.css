@@ -208,3 +208,39 @@ nav a:nth-of-type(even) span::before {
     50% {box-shadow: 0 0 15px 5px #c0ff33;}
     100% {box-shadow: 0 0 15px 5px #1a77e5;}
 }
+
+footer {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    padding: 3rem 0;
+    background: #eaeaea;
+    color: #0c0c0c;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+footer a {
+    font:0.75em/1.5em "Press Start 2P";
+    text-transform:uppercase;
+    color:#1a77e5;
+    background: linear-gradient(
+        to right, 
+        #c0ff33 calc(50% - 4px), 
+        rgba(194,213,223,0) calc(50% - 4px), 
+        rgba(39,39,39,0) calc(50% + 4px), 
+        #1a77e5 calc(50% + 4px)
+    );
+    background-size: calc(200% + 8px) 2px;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    padding-bottom:2px;
+    transition: 0.8s ease-in-out;
+}
+
+footer a:hover {
+    color:#0c0c0c;
+    background-position: left bottom;
+}
