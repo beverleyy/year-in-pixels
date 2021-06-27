@@ -1,15 +1,13 @@
-## year-in-pixels-2020
+## year-in-pixels-2021
 
-Version 2 of the year-in-pixels page.
+Version 3 of the year-in-pixels page.
 
 ### New features this year include:
 
-* No more jQuery! Vanilla is superior, yo.
-* I changed the color scheme to something more RGB
-* Pixel fonts to match the pixel theme (Press Start 2P and Bitxmap)
-* No more manually filling in the Javascript list, Papaparse and CORS-Anywhere lets this baby fetch data directly from a Google sheet
-* Removed the month/day numbers and reorganized the grid into a month format
-* And the old format is only a toggle switch away!
+* Still no jQuery! Vanilla is superior, yo.
+* A little more work with variables, getting the colors directly from the gradient bar.
+* Life is tuff and I have depression so instead of writing down moods, I just have a rating scale that goes from 1 (bad) to 10 (good) now
+* Day/night mode on automatic cause indecision is my life and I couldn't decide between black or white colors
 
 I reused the instance of CORS-Anywhere that I set up for my professor's study (see the MOE2018TRF005 repo) since it is tied to my Github Pages domain. Yes, I am that lazy.
 
