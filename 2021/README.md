@@ -15,3 +15,4 @@ I reused the instance of CORS-Anywhere that I set up for my professor's study (s
 
 * [PapaParse](http://www.papaparse.com)
 * [CORS Anywhere](https://github.com/Rob--W/cors-anywhere/)
+* [Number To Words](https://github.com/marlun78/number-to-words)
