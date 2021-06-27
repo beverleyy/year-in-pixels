@@ -53,7 +53,6 @@ Papa.parse("https://moe2018trf005cors.herokuapp.com/https://docs.google.com/spre
 	} 
 });
 
-
 function fillGrid(months, tooltips, leapYear) {
 	for (let i = 1; i <= 12; i++) {
 		var mth = document.createElement("div");
@@ -194,28 +193,6 @@ function displayFull() {
 	genTooltip(newGrid);
 	document.body.appendChild(newGrid);
 	makeTooltip();
-}
-
-var checkbox = document.getElementById("toggle");
-checkbox.addEventListener('change', (event) => {
-	if (event.target.checked) {
-		displayFull();
-	} else {
-		var full = document.getElementById("full");
-		fadein(document.getElementById("grid"));
-		fadeout(full);
-		full.parentNode.removeChild(full);
-	}
-});
-
-var len = 10;
-var gradient = document.querySelectorAll("#legend .key")[0];
-for(var i=1; i<=len; i++){
-	var rand = (i-1)*(1/(len-1));
-	var color = randomGradient(rand,gradient);
-	var prop = "--"+numberToWords.toWords(i);
-	document.documentElement.style.setProperty(prop,"rgb("+color+")");
-	console.log(prop,color);
 }
 
 function fadein(el) {
