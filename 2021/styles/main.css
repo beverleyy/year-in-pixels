@@ -196,7 +196,7 @@ header h1 {
 	display:inline-block;
 }
 
-/* gradient bar - important! colors come from here */
+/* gradient bar */
 
 #top {
 	position:fixed;
@@ -277,7 +277,7 @@ header h1 {
 	}
 }
 
-/* legend/key */
+/* legend/key - IMPORTANT! coloring comes from here */
 
 #legend {
 	margin:60px auto;
@@ -289,7 +289,7 @@ header h1 {
 
 #legend .key {
 	background:linear-gradient(
-		45deg, 
+		to right, 
 		var(--red),
 		var(--grey),
 		var(--blue)
@@ -298,17 +298,29 @@ header h1 {
 	height:1vw;
 }
 
-#legend .key span {
-	display:inline-block; 
-	vertical-align:middle;
-	padding-top:1.5vw;
+#legend .key > div {
+	width: 10%;
+	height: 1vw;
+	float: left;
+	opacity: 0;
+	transition: 0.4s ease-in-out;
 }
 
-#legend .key span.right {
+#legend .key:hover > div {
+	opacity: 1;
+}
+
+#legend span {
+	display:inline-block; 
+	vertical-align:middle;
+	margin-top:0.5vw;
+}
+
+#legend span.right {
 	float:right;
 }
 
-#legend .key span.left {
+#legend span.left {
 	float:left;
 }
 
