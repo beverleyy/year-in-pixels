@@ -21,7 +21,7 @@ for (var i=0; i<numBox; i++){
 	theDiv.appendChild(makeBox(color));
 	//color squares
 	var prop = "--"+numberToWords.toWords(i+1);
-	document.document.Element.style.setProperty(prop,"rgb("+color+")");
+	document.documentElement.style.setProperty(prop,"rgb("+color+")");
 
 }
 
