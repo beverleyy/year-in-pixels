@@ -22,7 +22,7 @@ for(var i=1; i<=len; i++){
 
 //day/night mode
 var now = new Date().getHours();
-if (now >= 19 && now <= 8){
+if (now >= 19 || now <= 8){
 	document.documentElement.style.setProperty("--bg-color","#272727");
 	document.documentElement.style.setProperty("--box-color","#323232");
 	document.documentElement.style.setProperty("--text","#cccccc");
