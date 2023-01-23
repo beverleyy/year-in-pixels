@@ -26,32 +26,41 @@ toggle.style.display = "none";
 var loader = document.getElementById("load");
 
 /* For the CORS-Anywhere server, I'm just reusing the one I made for the MOE2018TRF005 study because too lazy to make a new one... */
-Papa.parse("https://moe2018trf005cors.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSSMd98Y_-4ODf3FA3ZCGHIVnMF8wP18B91xKehE_4L4vMvGWn5ydpPoyy16q9RXoAB6YjEHoYJFnF8/pub?output=csv",{
-	download: true, 
-	header: true,
-	step: function(row) {
-		var thisRow = row.data;
-		var thisMonth = parseInt(thisRow.Month);
-		var thisDay = parseInt(thisRow.Day);
-		var rawScore = parseInt(thisRow.Score);
-		if (!isNaN(rawScore))
-			months[thisMonth-1][thisRow.Day] = numberToWords.toWords(rawScore).toLowerCase();
-		if(thisRow.Tooltip){
-			tooltips.push({
-				month:thisMonth,
-				day:thisDay,
-				content:thisRow.Tooltip
-			});
-		}
-	},
-	complete: function (results) {
-		fillGrid(months,tooltips,leapYear);
-		fadeout(loader);
-		fadein(legend);
-		fadein(toggle);
-		fadein(grid);
-	} 
-});
+var cors_api = 'https://moe2018trf005cors.onrender.com';
+var spreadsheet = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSSMd98Y_-4ODf3FA3ZCGHIVnMF8wP18B91xKehE_4L4vMvGWn5ydpPoyy16q9RXoAB6YjEHoYJFnF8/pub?output=csv';
+
+var x = new XMLHttpRequest();
+x.open('GET', cors_api+'/'+spreadsheet);
+x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+x.onload = function() {
+	Papa.parse(x.responseText,{
+		// download: true, 
+		header: true,
+		step: function(row) {
+			var thisRow = row.data;
+			var thisMonth = parseInt(thisRow.Month);
+			var thisDay = parseInt(thisRow.Day);
+			var rawScore = parseInt(thisRow.Score);
+			if (!isNaN(rawScore))
+				months[thisMonth-1][thisRow.Day] = numberToWords.toWords(rawScore).toLowerCase();
+			if(thisRow.Tooltip){
+				tooltips.push({
+					month:thisMonth,
+					day:thisDay,
+					content:thisRow.Tooltip
+				});
+			}
+		},
+		complete: function (results) {
+			fillGrid(months,tooltips,leapYear);
+			fadeout(loader);
+			fadein(legend);
+			fadein(toggle);
+			fadein(grid);
+		} 
+	});
+};
+x.send();
 
 function fillGrid(months, tooltips, leapYear) {
 	for (let i = 1; i <= 12; i++) {
